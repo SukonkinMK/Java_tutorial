@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        task3();
+        System.out.println(task4(4));
     }
 
     static void task1(){
@@ -56,5 +56,8 @@ public class Main {
                 index++;
             }
         }
+    }
+    static  int task4(int n){
+        return n*(n+1)/2;
     }
 }
