@@ -9,7 +9,7 @@ import java.util.logging.SimpleFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
+        task2();
     }
 
     static void task1(){
@@ -58,6 +58,24 @@ public class Main {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+    }
+    static void task2(){
+        String path_content = "E:\\1\\2";
+        File dir = new File(path_content);
+        if(dir.isDirectory()){
+            int i = 1;
+            for(File file : dir.listFiles()){
+                String filename = file.toString();
+                int lastDotIndex = filename.lastIndexOf(".");
+                int lastSlashIndex = filename.lastIndexOf("\\");
+                System.out.print(i + " Расширение файла: ");
+                i++;
+                if(lastDotIndex >lastSlashIndex){
+                    System.out.print(filename.substring(lastDotIndex + 1));
+                }
+                System.out.println();
             }
         }
     }
