@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
+        task2();
     }
 
     static void task1(){
@@ -21,5 +21,25 @@ public class Main {
             System.out.print("Доброй ночи, ");
         }
         System.out.println( name + "!");
+    }
+    static  void task2(){
+        var arr = new int[]{1,1,0,1,0,1,1,1,1};
+        int max_score = 0;
+        int current_score = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]==1){
+                current_score++;
+            }
+            else{
+                if(max_score < current_score){
+                    max_score = current_score;
+                }
+                current_score = 0;
+            }
+        }
+        if(max_score < current_score){
+            max_score = current_score;
+        }
+        System.out.println(max_score);
     }
 }
