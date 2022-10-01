@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        task2();
+        task3();
     }
 
     static void task1(){
@@ -41,5 +41,20 @@ public class Main {
             max_score = current_score;
         }
         System.out.println(max_score);
+    }
+    static  void task3(){
+        var nums = new int[]{1,3,2,1,2,3,4};
+        int val = 3;
+        var arr = new int[nums.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = val;
+        }
+        int index = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (nums[i] != val) {
+                arr[index] = nums[i];
+                index++;
+            }
+        }
     }
 }
