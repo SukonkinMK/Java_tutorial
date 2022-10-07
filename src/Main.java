@@ -9,7 +9,7 @@ import java.util.logging.SimpleFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        task2();
+        task1();
     }
 
     static void task1(){
@@ -29,12 +29,13 @@ public class Main {
         File dir = new File(path_content);
         String[] content = null;
         if(dir.isDirectory()){
-            content = new String[dir.listFiles().length];
+            content = dir.list();
+            /* content = new String[dir.listFiles().length];
             int i = 0;
             for(File file : dir.listFiles()){
                 content[i] = file.toString();
                 i++;
-            }
+            }*/
         }
         if(content != null && content.length > 0){
             File file = new File("content.txt");
