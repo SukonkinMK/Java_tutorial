@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,9 +8,11 @@ public class Main {
             list.add(i);
         }
         System.out.println(list);
-        System.out.println(task1(list));
-        System.out.println();
-        task2();
+        //System.out.println(task1(list));
+        //System.out.println();
+        //task2();
+
+        System.out.println(task3(list));
     }
 
     /**
@@ -37,6 +40,20 @@ public class Main {
         }
 
 
+    }
+
+    /**
+     * Найдите сумму всех элементов LinkedList, сохраняя все элементы в списке. Используйте итератор
+     * @param list исходный список
+     * @return сумма всех элементов
+     */
+    static int task3(LinkedList<Integer> list){
+        ListIterator<Integer> iterator = list.listIterator();
+        int sum = 0;
+        while (iterator.hasNext()){
+            sum += iterator.next();
+        }
+        return sum;
     }
 
 }
