@@ -8,6 +8,8 @@ public class Main {
         }
         System.out.println(list);
         System.out.println(task1(list));
+        System.out.println();
+        task2();
     }
 
     /**
@@ -24,5 +26,17 @@ public class Main {
         return result;
     }
 
+    static void task2(){
+        MyQueue queue = new MyQueue();
+        for (int i = 1; i <= 5; i++) {
+            queue.enqueue(i);
+        }
+        System.out.println(queue.first());
+        while (queue.first() != 0){
+            System.out.print(queue.dequeue() + " ");
+        }
+
+
+    }
 
 }
