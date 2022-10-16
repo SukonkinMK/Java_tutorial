@@ -2,7 +2,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        task2();
+        int[] arr = new int[]{2,5,6,7,8,1,2,8,4,10,3,9};
+        printArr(arr);
+        heapSort(arr);
+        printArr(arr);
     }
 
     static void task1(){
@@ -51,5 +54,44 @@ public class Main {
             }
         }
         System.out.println(treemap);
+    }
+    static void heapSort(int[] arr){
+        int n = arr.length;
+        for (int i = n/2 - 1; i >= 0; i--) {
+            maxHeap(arr,n,i);
+        }
+
+        for (int i = n-1; i >=0 ; i--) {
+            int tmp = arr[0];
+            arr[0] = arr[i];
+            arr[i] = tmp;
+            maxHeap(arr,i,0);
+        }
+    }
+
+    static void maxHeap(int[] arr, int n, int i){
+        int root = i;
+        int left = 2*i+1;
+        int right = 2*i+2;
+
+        if(left < n && arr[left] > arr[root]){
+            root = left;
+        }
+        if(right < n && arr[right] > arr[root]){
+            root = right;
+        }
+        if(root != i){
+            int tmp = arr[root];
+            arr[root] = arr[i];
+            arr[i] = tmp;
+            maxHeap(arr,n,root);
+        }
+    }
+    static void printArr(int[] arr){
+        for (int i:
+             arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 }
