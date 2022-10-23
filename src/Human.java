@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Human {
+public class Human implements Nameable {
     private static int humanCount = 0;
 
     private String firstName;
@@ -15,7 +15,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName;
+        return getName();
     }
 
     @Override
@@ -28,5 +28,10 @@ public class Human {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String getName() {
+        return firstName + " " + "lastname";
     }
 }

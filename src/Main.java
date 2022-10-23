@@ -13,5 +13,12 @@ public class Main {
         tree.printChildren(ivan);
         tree.printChildren(katya);
         tree.printChildren(dima);
+        System.out.println("--------------------");
+        Cat marusya = new Cat("Marusya");
+        GenealogicalTree treeCats = new GenealogicalTree(marusya);
+        Cat sharik = new Cat("Sharik");
+        Cat markiz = new Cat("Markiz");
+        treeCats.addchild(marusya, sharik,markiz);
+        treeCats.printChildren(marusya);
     }
 }
