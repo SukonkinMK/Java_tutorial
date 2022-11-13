@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        task1();
+        task2();
     }
 
     public static void task1(){
@@ -16,6 +16,18 @@ public class Main {
             System.out.print(item + " ");
         }
         System.out.println();
+    }
+
+    public static void task2(){
+        MyCollection collection = new MyCollection();
+        collection.add("Hello");
+        collection.add(", ");
+        collection.add("world");
+        collection.add("!");
+
+        for (String item : collection) {
+            System.out.print(item);
+        }
     }
 
 
