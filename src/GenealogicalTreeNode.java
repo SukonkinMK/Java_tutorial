@@ -1,38 +1,38 @@
 import java.util.List;
 
-public class GenealogicalTreeNode {
-    private Human parent1;
-    private Human parent2;
-    private Human currentHuman;
-    private Human partner;
-    List<GenealogicalTreeNode> children;
+public class GenealogicalTreeNode<T extends Nameable> {
+    private T parent1;
+    private T parent2;
+    private T currentHuman;
+    private T partner;
+    List<GenealogicalTreeNode<T>> children;
 
-    public GenealogicalTreeNode(Human human) {
+    public GenealogicalTreeNode(T human) {
         this.currentHuman = human;
     }
-    public GenealogicalTreeNode(Human human, Human parent1, Human parent2) {
+    public GenealogicalTreeNode(T human, T parent1, T parent2) {
         this.currentHuman = human;
         this.parent1 = parent1;
         this.parent2 = parent2;
     }
 
-    public Human getCurrentHuman() {
+    public T getCurrentHuman() {
         return currentHuman;
     }
 
-    public Human getPartner() {
+    public T getPartner() {
         return partner;
     }
 
-    public void setPartner(Human human){
+    public void setPartner(T human){
         this.partner = human;
     }
 
-    public List<GenealogicalTreeNode> getChildren() {
+    public List<GenealogicalTreeNode<T>> getChildren() {
         return children;
     }
 
-    public void setChildren(List<GenealogicalTreeNode> children) {
+    public void setChildren(List<GenealogicalTreeNode<T>> children) {
         this.children = children;
     }
 

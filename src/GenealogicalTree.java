@@ -1,17 +1,17 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class GenealogicalTree {
-    private GenealogicalTreeNode root;
+public class GenealogicalTree<T extends Nameable> {
+    private GenealogicalTreeNode<T> root;
 
-    public GenealogicalTree(Human human) {
-        this.root = new GenealogicalTreeNode(human);
+    public GenealogicalTree(T human) {
+        this.root = new GenealogicalTreeNode<>(human);
     }
 
-    public void addchild(Human adam, Human eva, Human child) {
-        GenealogicalTreeNode newNode = new GenealogicalTreeNode(child,adam,eva);
-        GenealogicalTreeNode currentNode = searchHuman(root, adam);
-        Human partner = eva;
+    public void addchild(T adam, T eva, T child) {
+        GenealogicalTreeNode<T> newNode = new GenealogicalTreeNode<>(child,adam,eva);
+        GenealogicalTreeNode<T> currentNode = searchHuman(root, adam);
+        T partner = eva;
         if(currentNode == null ){
             currentNode = searchHuman(root, eva);
             partner = adam;
@@ -20,7 +20,7 @@ public class GenealogicalTree {
             if (currentNode.getPartner() == null) {
                 currentNode.setPartner(partner);
             }
-            List<GenealogicalTreeNode> children = currentNode.getChildren();
+            List<GenealogicalTreeNode<T>> children = currentNode.getChildren();
             if (children == null) {
                 children = new LinkedList<>();
                 currentNode.setChildren(children);
@@ -29,13 +29,13 @@ public class GenealogicalTree {
         }
     }
 
-    private GenealogicalTreeNode searchHuman(GenealogicalTreeNode root, Human human){
-        GenealogicalTreeNode result = null;
-        List<GenealogicalTreeNode> children = root.getChildren();
+    private GenealogicalTreeNode<T> searchHuman(GenealogicalTreeNode<T> root, T human){
+        GenealogicalTreeNode<T> result = null;
+        List<GenealogicalTreeNode<T>> children = root.getChildren();
         if (root.getCurrentHuman().equals(human)){
             return root;
         }
-        for (GenealogicalTreeNode child: children) {
+        for (GenealogicalTreeNode<T> child: children) {
             if(child.getCurrentHuman().equals(human)){
                 return child;
             }
@@ -45,8 +45,8 @@ public class GenealogicalTree {
         }
         return result;
     }
-    public void printChildren(Human human){
-        GenealogicalTreeNode targetHuman = searchHuman(root, human);
+    public void printChildren(T human){
+         GenealogicalTreeNode<T> targetHuman = searchHuman(root, human);
         if(targetHuman.getChildren() != null){
             System.out.print("Children of " + human + ": ");
             System.out.println(targetHuman.getChildren());
