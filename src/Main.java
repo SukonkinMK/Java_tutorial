@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Presenter<UserInfo> presenter = new Presenter<>(new ConsoleUI(), new UsersDB<>(),new UserInfoCreator());
+        presenter.start();
     }
 }
